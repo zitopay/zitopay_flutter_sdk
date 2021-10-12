@@ -1,39 +1,62 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Zitopay Flutter SDK
+This sdk aims at simplifying integration of zitopay into flutter projects.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
+##### Description
+Calls a class `Zitopay` from the imported package with a single operational function `.pay()`.
+The constructor `Zitopay(...)` takes parameters in the order:
+```dart 
+  BuildContext context; 		 //build context
+  String amount;  		//the amount to be paid
+  String receiver;  		// the username or email of the one receiving the payment
+  String currency; 			 // the payment currency. default if "XAF"
+  String email;   				// the payers email
+  String success_url;  		// endpoint upon successfull payment
+  String cancel_url;  		// endpoint upon failed or canelled payment
+  String notification_url;;  		// endpoint for payment information
+  String receiver2;   		//  2rd receiver incase of split payment
+  String receiver3;  		// 3rd receiver incase of split payment
+  String sf;     //sharing formula. Should be of format "receiver-receiver2-receiver3"
 ```
 
-## Additional information
+##### Sample
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+` Zitopay(context, "5000", "democreator").pay(),`
+
+###### Note
+The following options are required :
+1. The BuildContext
+2. The amount
+3. The receiver
+
+The` pay()` function must be invoked.
+
+------------
+
+
+
+#### Installation.
+###### Note.
+This flutter package works only with andriod sdk v19 and above. If your project is of a lower andriod sdk version,  please update it before using this package
+
+##### Install Package
+First Install the package
+
+`flutter pub get zitopay`
+
+##### Use package
+This pay function of returns an elevated button widge. Sample usage
+
+    import 'package:flutter/material.dart';
+    import 'package:zitopay/zitopay.dart';
+     
+        . 
+    		.
+    		.
+    
+          floatingActionButton: Zitopay(context,"5000","democreator").pay(),
+        .  
+    		.
+    		.
+    
+
+
