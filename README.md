@@ -26,7 +26,7 @@ The constructor `Zitopay(...)` takes parameters in the order:
 The following options are required :
 1. The BuildContext
 2. The amount
-3. The receiver
+3. The receiver (Zitopay username or email)
 
 The` pay()` function must be invoked.
 
